@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+        <record  id="itinew_res_partner_form_inherit" model="ir.ui.view" >
+            <field name="name">res partner inherit form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="17"/>
+            <field name="arch" type="xml">
+                    <xpath
+                        expr="//field[@name='vat']"
+                        position="after">
+                        <field name="medical_insurance"/>
+                    </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

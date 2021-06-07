@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+<body>
+{% block content %}
+<form method="POST" action="/update/{{ itinew.id }}">
+    {% csrf_token %}
+<table>
+    <tr><td><input type="text" name="id"  value="{{ itinew.id }}"/></td></tr>
+    <tr><td><input type="text" name="name" required maxlength="100" id="id_ename" value="{{ itinew.name}}"/></td></tr>
+    <tr><td><input type="text" name="description" required maxlength="254" id="id_description" value="{{ itinew.description  }}"/></td></tr>
+    <tr><td><input type="text" name="price" required maxlength="15" id="id_price" value="{{ itinew.price}}"/></td></tr>
+    <tr><td><input type="text" name="created_at" required maxlength="15" id="id_created_at" value="{{ itinew.created_at}}"/></td></tr>
+    <tr><td><button type="submit">Update</button></td></tr>
+</table>
+</form>
+{% endblock %}
+</body>
+

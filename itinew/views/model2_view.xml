@@ -1,0 +1,88 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="itinew.basic_model2_list_view">
+      <field name="name">itinew list</field>
+      <field name="model">itinew.basic.model2</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="unit_price"/>
+          <field name="qty"/>
+          <field name="sub_total"/>
+          <field name="order"/>
+          <field name="model1"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+ <!-- new -->
+
+    <record model="ir.ui.view" id="itinew.basic_model2_form_view">
+      <field name="name">itinew form</field>
+      <field name="model">itinew.basic.model2</field>
+      <field name="arch" type="xml">
+        <form>
+           <sheet>
+              <h2>
+              <field name="name"/>
+              </h2>
+          <group>
+          <field name="name"/>
+          <field name="unit_price"/>
+          <field name="qty"/>
+          <field name="sub_total"/>
+          <field name="order"/>
+          <field name="model1"/>
+          </group>
+          </sheet>
+          </form>
+      </field>
+    </record>
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="itinew.action_window_model2">
+      <field name="name">itinew window</field>
+      <field name="res_model">itinew.basic.model2</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+
+    <!-- <record model="ir.actions.server" id="itinew.action_server">
+      <field name="name">itinew server</field>
+      <field name="model_id" ref="model_itinew_itinew"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record> -->
+
+    <!-- Top menu item -->
+
+    <menuitem name="itinew" id="itinew.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="itinew.menu_1" parent="itinew.menu_root"/>
+    <!-- <menuitem name="Menu 2" id="itinew.menu_2" parent="itinew.menu_root"/> -->
+
+    <!-- actions -->
+
+    <menuitem name="List Model 2" id="itinew.menu_2_list" parent="itinew.menu_1"
+              action="itinew.action_window_model2"/>
+    <!-- <menuitem name="Server to list" id="itinew" parent="itinew.menu_2"
+              action="itinew.action_server"/> -->
+
+  </data>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_itinew_itinew,itinew.itinew,model_itinew_basic_model1,base.group_user,1,1,1,1
+access_itinew_itinew2,itinew.itinew2,model_itinew_basic_model2,base.group_user,1,1,1,1
+access_itinew_itinew3,itinew.itinew3,model_itinew_order,base.group_user,1,1,1,1
+access_itinew_change_date_wizard,access_itinew_change_date_wizard,model_itinew_change_date_wizard,base.group_user,1,1,1,1

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+<body>
+{% block content %}
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Created_at</th>
+    </tr>
+    {% for r in itinew %}
+    <tr>
+        <td>{{r.id}}</td>
+        <td>{{r.name}}</td>
+        <td>{{r.description}}</td>
+        <td>{{r.price}}</td>
+        <td>{{r.created_at}}</td>
+        <td><a href="/edit/{{ r.id }}">Edit</a></td>
+        <td><a href="/delete/{{ r.id }}">delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+</body>

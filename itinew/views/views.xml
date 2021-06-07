@@ -1,0 +1,93 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="itinew.basic_model1_list_view">
+      <field name="name">itinew list</field>
+      <field name="model">itinew.basic.model1</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="price"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="itinew.basic_model1_graph_view">
+      <field name="name">itinew list</field>
+      <field name="model">itinew.basic.model1</field>
+      <field name="arch" type="xml">
+        <graph string="Medicine">
+          <field name="price" type="measure"/>
+        </graph>
+      </field>
+    </record>
+
+
+
+ <!-- new -->
+
+    <record model="ir.ui.view" id="itinew.basic_model1_form_view">
+      <field name="name">itinew form</field>
+      <field name="model">itinew.basic.model1</field>
+      <field name="arch" type="xml">
+        <form>
+           <sheet>
+              <h2>
+              <field name="name"/>
+              </h2>
+          <group>
+          <field name="description"/>
+          <field name="timestamp"/>
+          <field name="price"/>
+          <field name="manufacturer"/>
+          <field name="model_2"/>
+          </group>
+          </sheet>
+          </form>
+      </field>
+    </record>
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="itinew.action_window">
+      <field name="name">itinew window</field>
+      <field name="res_model">itinew.basic.model1</field>
+      <field name="view_mode">tree,form,graph</field>
+    </record>
+
+    <!-- server action to the one above -->
+
+    <!-- <record model="ir.actions.server" id="itinew.action_server">
+      <field name="name">itinew server</field>
+      <field name="model_id" ref="model_itinew_itinew"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record> -->
+
+    <!-- Top menu item -->
+
+    <menuitem name="itinew" id="itinew.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="itinew.menu_1" parent="itinew.menu_root"/>
+    <!-- <menuitem name="Menu 2" id="itinew.menu_2" parent="itinew.menu_root"/> -->
+
+    <!-- actions -->
+
+    <menuitem name="List" id="itinew.menu_1_list" parent="itinew.menu_1"
+              action="itinew.action_window"/>
+    <!-- <menuitem name="Server to list" id="itinew" parent="itinew.menu_2"
+              action="itinew.action_server"/> -->
+
+  </data>
+</odoo>

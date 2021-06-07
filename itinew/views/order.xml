@@ -1,0 +1,97 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="itinew.order_list_view">
+      <field name="name">itinew list</field>
+      <field name="model">itinew.order</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="date"/>
+          <field name="model_2"/>
+        </tree>
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="itinew.order_calendar_view">
+      <field name="name">itinew list</field>
+      <field name="model">itinew.order</field>
+      <field name="arch" type="xml">
+        <calendar date_start="date" string="Order calendar">
+          <field name="name"/>
+        </calendar>
+      </field>
+    </record>
+
+
+
+ <!-- new -->
+
+    <record model="ir.ui.view" id="itinew.order_form_view">
+      <field name="name">itinew form</field>
+      <field name="model">itinew.order</field>
+      <field name="arch" type="xml">
+        <form>
+           <header>
+              <button name="%(change_date_wizard_action)d" type="action" string="copy" class="oe-highlight"/>
+           </header> 
+           <sheet>
+              <h2>
+              <field name="name"/>
+              </h2>
+          <group>
+          <field name="name"/>
+          <field name="partner"/>
+          <field name="date"/>
+          <field name="model_2"/>
+          </group>
+          </sheet>
+          </form>
+      </field>
+    </record>
+
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="itinew.action_window_order">
+      <field name="name">itinew window</field>
+      <field name="res_model">itinew.order</field>
+      <field name="view_mode">tree,kanban,calendar,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+
+    <!-- <record model="ir.actions.server" id="itinew.action_server">
+      <field name="name">itinew server</field>
+      <field name="model_id" ref="model_itinew_itinew"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record> -->
+
+    <!-- Top menu item -->
+
+    <menuitem name="itinew" id="itinew.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="itinew.menu_1" parent="itinew.menu_root"/>
+    <!-- <menuitem name="Menu 2" id="itinew.menu_2" parent="itinew.menu_root"/> -->
+
+    <!-- actions -->
+
+    <menuitem name="List Model 3" id="itinew.menu_3_list" parent="itinew.menu_1"
+              action="itinew.action_window_order"/>
+    <!-- <menuitem name="Server to list" id="itinew" parent="itinew.menu_2"
+              action="itinew.action_server"/> -->
+
+  </data>
+</odoo>

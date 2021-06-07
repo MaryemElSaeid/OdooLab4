@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+<body>
+{% block content %}
+<form method="post" action="/add">
+    {% csrf_token %}
+
+    <label>ID: </label>
+    <div>{{ form.id }}</div>
+    <label>Name: </label>
+    <div>{{ form.name }}</div>
+    <label>Description:</label>
+    <div> {{ form.description }}</div>
+    <label>Price:</label>
+    <div> {{ form.price }}</div>
+    <label>Created_at:</label>
+    <div> {{ form.created_at }}</div>
+    <div>
+        <button class="btn btn-info" type="submit">Add</button>
+    </div>
+
+</form>
+
+{% endblock %}
+</body>

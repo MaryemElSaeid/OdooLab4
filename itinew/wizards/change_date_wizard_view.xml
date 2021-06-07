@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+    <record id="change_date_wizard_form_view" model="ir.ui.view">
+      <field name="name">Change Date Wizard Form</field>
+      <field name="model">itinew.change.date.wizard</field>
+      <field name="arch" type="xml">
+        <form>
+          <h2>Duplicate Record:</h2>
+          
+        </form>
+        <div>
+              <button name="action_change_date" string="Yes" type="object" class="oe_highlight"/>
+              <button string="No"/>
+        </div>
+      </field>
+    </record>
+
+    <record id="change_date_wizard_action" model="ir.actions.act_window">
+        <field name="name">Change Date</field>
+        <field name="res_model">itinew.change.date.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_itinew_change_date_wizard"/>
+    </record>
+
+
+
+
+   </data>
+</odoo>
